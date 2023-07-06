@@ -1,0 +1,23 @@
+version: 1
+formatters:
+  stream:
+    format: "%(message)s"
+  file_format:
+    format: "[%(asctime)s] %(levelname)s (%(name)s) - %(message)s {%(pathname)s:%(lineno)d}"
+handlers:
+  wsgi:
+    class: "logging.StreamHandler"
+    stream: "ext://flask.logging.wsgi_errors_stream"
+    formatter: "stream"
+  rotating_file:
+    class: "logging.handlers.RotatingFileHandler"
+    filename: "api.log"
+    maxBytes: 10000000
+    backupCount: 5
+    level: DEBUG
+    formatter: "file_format"
+root:
+  level: INFO
+  handlers:
+    - wsgi
+    - rotating_file
