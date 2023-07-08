@@ -25,13 +25,13 @@ def save_new_institute(data):
     if not validate(data["cnpj"]):
         raise APIError("The CNPJ provided is not valid.", code=406, api_code="INVALID_CNPJ")
     
-    if User.query.filter_by(email=data["intitute_admin"]["email"]).first():
+    if User.query.filter_by(email=data["institute_admin"]["email"]).first():
         raise APIError("User already exists", code=409, api_code="USER_ALREADY_EXISTS")
 
     if Institute.query.filter_by(cnpj=data["cnpj"]).first():
         raise APIError("Institute already exists.", code=409, api_code="INSTITUTE_ALREADY_EXISTS")
 
-    user_dict = data.pop("intitute_admin")
+    user_dict = data.pop("institute_admin")
     role = user_dict.pop("role")
 
     address_dict = data.pop("address")
