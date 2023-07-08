@@ -11,7 +11,7 @@ app.register_blueprint(blueprint)
 app.app_context().push()
 
 
-@app.cli.command("create_api_database")
+@app.cli.command("setup_api_database")
 def create_db():
     db.drop_all()
     db.create_all()
