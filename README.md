@@ -61,7 +61,7 @@ python3 api.py
 
 The API will be available at `http://localhost:5000`.
 
-![](https://github.com/jbrun0r/assets/blob/main/institute-api.gif?raw=true)
+![](https://github.com/jbrun0r/assets/blob/main/insititute-api/swagger-institute-API.gif?raw=true)
 
 ## API Endpoints
 
